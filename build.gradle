@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.github.hancomins'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': 'JarSignTool',       // 프로젝트 제목
+                'Implementation-Version': project.version,          // 프로젝트 버전
+                'Implementation-Vendor': 'HANCOM INNOSTREAM',      // 제작자 또는 회사 이름
+                'Built-By': 'Sungbeom HONG', // 빌드한 사람
+                'Created-By': "Gradle ${gradle.gradleVersion}"  // Gradle 버전
+        )
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+dependencies {
+    implementation 'org.bouncycastle:bcpg-jdk15on:1.70'
+    implementation 'org.bouncycastle:bcpg-jdk15on:1.70'
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation platform('org.junit:junit-bom:5.10.3')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+}
+
+test {
+    useJUnitPlatform()
+}
