@@ -60,8 +60,9 @@ gpg --full-generate-key
     ```
     
 ## 4. JarSignTool 도구를 이용하여 gradle 에서 JAR 파일 서명과 검증 및 hash 생성
+* central.sonatype.com 나 또는 자체 저장소에 배포할 수 있도록 서명이 필요합니다. 아래와 같이 gradle 스크립트를 이용하면 빌드 이후 서명을 자동화 시킬 수 있습니다.
     ```groovy
-    # build.gradle 파일에 JarSignTool 플러그인 추가
+     // build.gradle 파일에 JarSignTool 플러그인 추가
       buildscript {
 
          dependencies {
@@ -77,7 +78,7 @@ gpg --full-generate-key
      import com.hancomins.util.JarSign
      import com.hancomins.util.PomBuilder
 
-      # 중략...
+      // 중략...
 
       
       jar {
@@ -105,7 +106,7 @@ gpg --full-generate-key
           }
       }
 
-      # pom.xml 파일 생성
+      /// pom.xml 파일 생성
       task makePom {
          group = 'build'
          doLast {
